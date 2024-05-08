@@ -1,0 +1,28 @@
+<project name="json" basedir="." default="main">
+    <property name="src.list" value="./"/>
+    <property name="build.dir"       value="${project.basedir}/../../../build"/>
+    <property name="jar.dir"         value="/octech/lib/octech/java"/>
+    <property name="lib-latest.dir"   value="/octech/lib/latest/*.jar"/>
+    <path id="classpath">
+    	<fileset dir="/octech/lib/latest" includes="*.jar"/>
+        <pathelement location="${lib-octech.dir}"/>
+    </path>
+    
+    <target name="compile">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.list}" destdir="${build.dir}" classpathref="classpath" debug="true" debuglevel="lines,source" 
+		includeantruntime="false">
+		<compilerarg value="-Xlint" />
+	</javac>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${build.dir}"/>
+    </target>
+    
+    <target name="clean">
+    	<delete dir="${build.dir}"/>
+    </target>
+    <target name="main" depends="compile,jar,clean"/>
+</project>
