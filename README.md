@@ -1,8 +1,8 @@
 # Json-Quill
 
-Json-Quill is a Java library that converts Java Objects into their JSON format. Json-Quill focused on the performance and was designed to handle huge tasks with minimum 
+Json-Quill is a Java library that converts Java Objects into their JSON format. Json-Quill focused on performance and was designed to handle huge tasks with minimum time.
 
-Development team used algorithms that tackles directly with byte array, limit the abuse of creating new objects in Java that could consume a lot of memory.
+The development team used algorithms that tackle directly with byte arrays, limit the abuse of creating new objects in Java that could consume a lot of memory.
 
 ## Installation
 
