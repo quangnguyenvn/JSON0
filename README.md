@@ -6,4 +6,4 @@ Development team used algorithms that tackles directly with byte array, limit th
 
 ## Installation
 
-Download [jar file](https://drive.google.com/file/d/1IuAe7CN0vhMkmupe3eXvKBpD47uXZWiN/view?usp=drive_link).
+Download the [jar file](https://drive.google.com/file/d/1IuAe7CN0vhMkmupe3eXvKBpD47uXZWiN/view?usp=drive_link).
