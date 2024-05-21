@@ -16,7 +16,7 @@ Download the [Jquill jar file](https://drive.google.com/file/d/1xL_0PCIwQdb1DjLI
 	json.put("place1","hoi an town");
 	json.put("daylength",3);
 	JSON nested = new JSON();
-	nested.put("participant", json);
+	nested.put("schedule", json);
 
 *get the element in json:*
 
