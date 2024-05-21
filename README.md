@@ -10,8 +10,18 @@ Download the [Jquill jar file](https://drive.google.com/file/d/1xL_0PCIwQdb1DjLI
 
 ## Examples
 
+*build json format with Java objects as inputs:*
+
 	JSON json = new JSON();
 	json.put("place1","hoi an town");
 	json.put("daylength",3);
 	JSON nested = new JSON();
-	nested.put("participant", 10);
+	nested.put("participant", json);
+
+*get the element in json:*
+
+    json.get("daylength");
+
+*convert to String:*
+
+    json.toString()
