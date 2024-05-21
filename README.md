@@ -25,3 +25,7 @@ Download the [Jquill jar file](https://drive.google.com/file/d/1xL_0PCIwQdb1DjLI
 *convert to String:*
 
     json.toString()
+
+## License
+
+Jquill is released under the Apache 2.0 license.
