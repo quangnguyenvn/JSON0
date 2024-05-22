@@ -1,8 +1,8 @@
 # Jquill
 
-Jquill is a Java library that converts Java Objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team used algorithms maximizing the reuse and limiting the abuse of creating new objects in Java that could consume a lot of memory.
+Jquill is the fastest Java library that converts Java Objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team used algorithms to maximize the reuse and limit the abuse of creating new objects in Java that could consume a lot of memory.
 
-Jquill is inspired by the features of swan quills, the best quill in the world, light, strong and elegant.
+Jquill is inspired by the features of swan quills, the best quill in the world which is light, strong, and elegant.
 
 ## Installation
 
@@ -10,7 +10,7 @@ Download the [Jquill jar file](https://drive.google.com/file/d/1xL_0PCIwQdb1DjLI
 
 ## Examples
 
-*build json format with Java objects as inputs:*
+*Build JSON format with Java objects as inputs:*
 
 	JSON json = new JSON();
 	json.put("place1","hoi an town");
@@ -18,11 +18,11 @@ Download the [Jquill jar file](https://drive.google.com/file/d/1xL_0PCIwQdb1DjLI
 	JSON nested = new JSON();
 	nested.put("schedule", json);
 
-*get the element in json:*
+*Get the element in JSON:*
 
     json.get("daylength");
 
-*convert to String:*
+*Convert to String:*
 
     json.toString()
 
