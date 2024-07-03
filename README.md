@@ -1,8 +1,6 @@
-# Jquill
+# JSON0
 
-Jquill is the fastest Java library that converts Java Objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team used algorithms to maximize the reuse and limit the abuse of creating new objects in Java that could consume a lot of memory.
-
-Jquill is inspired by the features of swan quills, the best quill in the world which is light, strong, and elegant.
+JSON0 is the fastest Java library that converts Java Objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team used algorithms to maximize the reuse and limit the abuse of creating new objects in Java that could consume a lot of memory.
 
 Performance Benmark will be shown later.
 
@@ -30,4 +28,4 @@ Download the [Jquill jar file](https://drive.google.com/file/d/1xL_0PCIwQdb1DjLI
 
 ## License
 
-Jquill is released under the Apache 2.0 license.
+JSON0 is released under the Apache 2.0 license.
