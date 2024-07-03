@@ -8,10 +8,10 @@ JHM library:
 https://github.com/openjdk/jmh
 
 Local computer:
-JMH 1.33
-Java 16
-Maven 4.0
-CPU i5-7300
+|JMH 1.33|
+|Java 16|
+|Maven 4.0|
+|CPU i5-7300|
 
 Result:
 | Benchmark    						| (N) 		|  Mode  	| Cnt 		| Score 		| 		| Error	 		|	 Units 	|
