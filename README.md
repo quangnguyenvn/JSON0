@@ -14,12 +14,13 @@ Maven 4.0
 CPU i5-7300
 
 Result:
-Benchmark                             (N)  Mode  Cnt       Score       Error  Units
-BenchmarkLoop.loopForFlexJson    10000000  avgt    8  124901.560 ± 16257.584  ms/op
-BenchmarkLoop.loopForGson        10000000  avgt    8  172903.027 ±  9400.753  ms/op
-BenchmarkLoop.loopForJSONSimple  10000000  avgt    8  133672.380 ±  9083.245  ms/op
-BenchmarkLoop.loopForJackson     10000000  avgt    8   48434.752 ± 11094.471  ms/op
-BenchmarkLoop.loopForJquill      10000000  avgt    8   24819.857 ±  3235.933  ms/op
+| Benchmark    						| (N) 		|  Mode  	| Cnt 		| Score 		| 		| Error	 		|	 Units 	|
+| -------- 							| ------- 	|  -------  |-------   	|------- 		|-------|------- 		|------- 	| 
+| BenchmarkLoop.loopForFlexJson		| 10000000 	|	avgt	|	8		|124901.560		|	+	|	16257.584	|	ms/op	|
+| BenchmarkLoop.loopForGson 		| 10000000  |	avgt	|	8		|172903.027		|	+	|	9400.753	|	ms/op	|
+| BenchmarkLoop.loopForJSONSimple   | 10000000  |	avgt	|	8		|133672.380		|	+	|	9083.245	|	ms/op	|
+| BenchmarkLoop.loopForJackson   	| 10000000  |	avgt	|	8		|48434.752		|	+	|	11094.471	|	ms/op	|
+| BenchmarkLoop.loopForJquill   	| 10000000  |	avgt	|	8		|24819.857		|	+	|	3235.933	|	ms/op	|
 
 ## Installation
 
