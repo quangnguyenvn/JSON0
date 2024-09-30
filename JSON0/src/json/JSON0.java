@@ -3,7 +3,7 @@ package json;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-public class JSON {
+public class JSON0 {
     
     private static final int DEFAULT_FIELDS = 512;
     
@@ -29,7 +29,7 @@ public class JSON {
     
     private int numItems;
     
-    private JSON(JSON json) {
+    private JSON0(JSON0 json) {
 	isArray = false;
 	data = json.getData();
 	charset = json.getCharset();
@@ -37,17 +37,17 @@ public class JSON {
 	numItems = 0;
     }
     
-    public JSON() {
+    public JSON0() {
 	isArray = false;
 	init(DEFAULT_FIELDS);
     }
     
-    public JSON(int size) {
+    public JSON0(int size) {
 	isArray = false;
 	init(size);
     }
     
-    public JSON(int size, int bufSize) {
+    public JSON0(int size, int bufSize) {
 	isArray = false;
         init(size);
 	data.initBuf(bufSize);
@@ -75,7 +75,7 @@ public class JSON {
 	return offset;
     }
     
-    public static final void copy(JSON src, JSON dest) {
+    public static final void copy(JSON0 src, JSON0 dest) {
 	
 	Element element = src.getHead();
 	
@@ -88,10 +88,10 @@ public class JSON {
 	    
 	    element = src.next(element);
 
-            if (value instanceof JSON) {
+            if (value instanceof JSON0) {
 
-		JSON jsonVal = (JSON) value;
-		JSON json;
+		JSON0 jsonVal = (JSON0) value;
+		JSON0 json;
 		
 		if (jsonVal.isArray()) {
 		    json = dest.createJSONArray(key);
@@ -108,10 +108,10 @@ public class JSON {
 	}
     }
     
-    public static final JSON clone(JSON src) {
-	JSON json = new JSON(src.getDataLength());
+    public static final JSON0 clone(JSON0 src) {
+	JSON0 json = new JSON0(src.getDataLength());
 	json.isArray(src.isArray());
-	JSON.copy(src, json);
+	JSON0.copy(src, json);
 	return json;
     }
     
@@ -123,8 +123,8 @@ public class JSON {
     }
 
     private int copyValue(Object val, byte[] buf, int offset) {
-	if (val instanceof JSON) {
-	    JSON json = (JSON) val;
+	if (val instanceof JSON0) {
+	    JSON0 json = (JSON0) val;
 	    if (json.isArray()) {
 		buf[offset++] = JSON_ARRAY_OPEN;
 		offset += json.toBytes(buf, offset, false);
@@ -227,41 +227,41 @@ public class JSON {
 	return object.toString();
     }
 
-    public final JSON getArray(String key) {
+    public final JSON0 getArray(String key) {
 	
         Object child = get(key);
 	
 	if (child == null) {
-	    JSON json = new JSON(0);
+	    JSON0 json = new JSON0(0);
 	    json.isArray(true);
 	    return json;
 	}
 	
-	if (child instanceof JSON) {
-            JSON json = (JSON) child;
+	if (child instanceof JSON0) {
+            JSON0 json = (JSON0) child;
             if (json.isArray()) {
                 return json;
             }
         }
 	
-        JSON json = new JSON(1);
+        JSON0 json = new JSON0(1);
 	json.isArray(true);
         json.put(child);
         return json;
     }
 
-    public final JSON createJSON(String key) {
-	JSON json = new JSON(this);
+    public final JSON0 createJSON(String key) {
+	JSON0 json = new JSON0(this);
 	put(key, json);
 	return json;
     }
     
-    public final JSON createJSON() {
+    public final JSON0 createJSON() {
         return createJSON(null);
     }
 
-    public final JSON createJSONArray(String key) {
-        JSON json = new JSON(this);
+    public final JSON0 createJSONArray(String key) {
+        JSON0 json = new JSON0(this);
 	json.isArray(true);
 	put(key, json);
         return json;
@@ -369,12 +369,12 @@ public class JSON {
 	    if (pos < 0) return false;
 	    
 	    if (buf[startPos] == JSON_OPEN) {
-		JSON jsonChild = createJSON(null);
+		JSON0 jsonChild = createJSON(null);
 		if (!jsonChild.parse(buf, startPos, pos - startPos)) {
 		    return false;
 		}
 	    } else if (buf[startPos] == JSON_ARRAY_OPEN) {
-		JSON jsonChild = createJSONArray(null);
+		JSON0 jsonChild = createJSONArray(null);
 		if (!jsonChild.parse(buf, startPos, pos - startPos)) {
 		    return false;
 		}
@@ -416,10 +416,10 @@ public class JSON {
 	    }
 
 	    if (buf[startPos] == JSON_OPEN) {
-		JSON jsonChild = createJSON(key);
+		JSON0 jsonChild = createJSON(key);
 		if (!jsonChild.parse(buf, startPos, pos - startPos)) return false;
 	    } else if (buf[startPos] == JSON_ARRAY_OPEN) {
-		JSON jsonChild = createJSONArray(key);
+		JSON0 jsonChild = createJSONArray(key);
 		if (!jsonChild.parse(buf, startPos, pos - startPos)) return false;
 	    } else {
 		put(key, getString(buf, startPos, pos));
