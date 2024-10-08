@@ -24,12 +24,12 @@ Result:
 
 ## Installation
 
-Download the [JSON0 jar file](https://drive.google.com/file/d/1xL_0PCIwQdb1DjLI_GRZ_lrVlvL3Vrv3/view?usp=drive_link).
+Download the [JSON0 jar file](https://drive.google.com/file/d/1SxBHkMswdQY70T9e8Dz0TzNWJKKHV-dY/view?usp=sharing).
 
 ## Examples
 *import the library:*
 
-	octeam.core.json.JSON0
+	import octeam.core.json.JSON0
 	
 *Build JSON format with Java objects as inputs:*
 
