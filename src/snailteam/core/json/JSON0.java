@@ -1,4 +1,4 @@
-package octeam.core.json;
+package snailteam.core.json;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;

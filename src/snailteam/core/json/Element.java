@@ -1,4 +1,4 @@
-package octeam.core.json;
+package snailteam.core.json;
 
 public class Element {
     public String key;

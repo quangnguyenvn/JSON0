@@ -29,7 +29,7 @@ Download the [JSON0 jar file](https://drive.google.com/file/d/1SxBHkMswdQY70T9e8
 ## Examples
 *import the library:*
 
-	import octeam.core.json.JSON0
+	import snailteam.core.json.JSON0
 	
 *Build JSON format with Java objects as inputs:*
 
