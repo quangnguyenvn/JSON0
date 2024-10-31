@@ -14,59 +14,15 @@ jobs:
       - name: Step 1 - Checkout code
         uses: actions/checkout@v3
         with:
-          ref: https://github.com/quangnguyenvn/JSON0  # Dynamically use branch name
+          ref: ${{ github.ref_name }}  # Dynamically use branch name
 
       - name: Step 2 - Import GPG Key
         run: |
-          echo "mDMEZyHdAhYJKwYBBAHaRw8BAQdATet135GUVtew+TwNxlPign31+sPfrRT6ohNw
-HdPlAVC0IXF1YW5nIDxxdWFuZ25ndXllbkBvY3RlY2guY29tLnZuPoiZBBMWCgBB
-FiEE4uWi8JFuNMhQlxIKeDnl3/fxJHoFAmch3QICGwMFCQWjmoAFCwkIBwICIgIG
-FQoJCAsCBBYCAwECHgcCF4AACgkQeDnl3/fxJHqOlAD+LGGgiKq32FqZisMaWBaM
-g2JHe3wlYx5viwMSNt0EMF8BANLy2iZBkkk8A4/ubSriVEiwdmHlIcpgMxZR5InK
-oWsOuDgEZyHdAhIKKwYBBAGXVQEFAQEHQML1zKHtZ3jnXZgOSrZ2snCOUIC0NGeK
-DXoPKmpD6SIxAwEIB4h+BBgWCgAmFiEE4uWi8JFuNMhQlxIKeDnl3/fxJHoFAmch
-3QICGwwFCQWjmoAACgkQeDnl3/fxJHofiAD/VsQrcT+KRCyEw/dxqn8RCtyJuk/H
-NCZX0q0AhyeV1o0A/236JgKKNnmpTQ8aCWw0Dq1zMb8tiwFPAaaF0+RD50wE
-=Vcq/" | gpg --import
-          echo "lIYEZyHdAhYJKwYBBAHaRw8BAQdATet135GUVtew+TwNxlPign31+sPfrRT6ohNw
-HdPlAVD+BwMCrqg3IZUl2WnK0DFviO6y57uUo2aj4XLNd0oxSmkSVMptjgxvvtEx
-6KWJz93Y8s0Ffx2HK/Px9WdlAw7RZMS7vxZRXum/frhXWCYENps7drQhcXVhbmcg
-PHF1YW5nbmd1eWVuQG9jdGVjaC5jb20udm4+iJkEExYKAEEWIQTi5aLwkW40yFCX
-Egp4OeXf9/EkegUCZyHdAgIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIe
-BwIXgAAKCRB4OeXf9/Ekeo6UAP4sYaCIqrfYWpmKwxpYFoyDYkd7fCVjHm+LAxI2
-3QQwXwEA0vLaJkGSSTwDj+5tKuJUSLB2YeUhymAzFlHkicqhaw6ciwRnId0CEgor
-BgEEAZdVAQUBAQdAwvXMoe1neOddmA5KtnaycI5QgLQ0Z4oNeg8qakPpIjEDAQgH
-/gcDAuX6GkOa2R7UysvXl/58/YdRvm57hlm2ldeu+CcZ7weFuaAU3Dldw70Trx3i
-60Nbd2QJwBok5GRnIM2YNLzuZUYAhBgY/+EYcq1MrK9nuT+IfgQYFgoAJhYhBOLl
-ovCRbjTIUJcSCng55d/38SR6BQJnId0CAhsMBQkFo5qAAAoJEHg55d/38SR6H4gA
-/1bEK3E/ikQshMP3cap/EQrcibpPxzQmV9KtAIcnldaNAP9t+iYCijZ5qU0PGgls
-NA6tczG/LYsBTwGmhdPkQ+dMBA==
-=roG3" | gpg --import --no-tty --batch --yes
+          echo "${{ secrets.GPG_PUBLIC_KEY }}" | gpg --import
+          echo "${{ secrets.GPG_SECRET_KEY }}" | gpg --import --no-tty --batch --yes
         env:
-          GPG_PUBLIC_KEY: mDMEZyHdAhYJKwYBBAHaRw8BAQdATet135GUVtew+TwNxlPign31+sPfrRT6ohNw
-HdPlAVC0IXF1YW5nIDxxdWFuZ25ndXllbkBvY3RlY2guY29tLnZuPoiZBBMWCgBB
-FiEE4uWi8JFuNMhQlxIKeDnl3/fxJHoFAmch3QICGwMFCQWjmoAFCwkIBwICIgIG
-FQoJCAsCBBYCAwECHgcCF4AACgkQeDnl3/fxJHqOlAD+LGGgiKq32FqZisMaWBaM
-g2JHe3wlYx5viwMSNt0EMF8BANLy2iZBkkk8A4/ubSriVEiwdmHlIcpgMxZR5InK
-oWsOuDgEZyHdAhIKKwYBBAGXVQEFAQEHQML1zKHtZ3jnXZgOSrZ2snCOUIC0NGeK
-DXoPKmpD6SIxAwEIB4h+BBgWCgAmFiEE4uWi8JFuNMhQlxIKeDnl3/fxJHoFAmch
-3QICGwwFCQWjmoAACgkQeDnl3/fxJHofiAD/VsQrcT+KRCyEw/dxqn8RCtyJuk/H
-NCZX0q0AhyeV1o0A/236JgKKNnmpTQ8aCWw0Dq1zMb8tiwFPAaaF0+RD50wE
-=Vcq/
-          GPG_SECRET_KEY: lIYEZyHdAhYJKwYBBAHaRw8BAQdATet135GUVtew+TwNxlPign31+sPfrRT6ohNw
-HdPlAVD+BwMCrqg3IZUl2WnK0DFviO6y57uUo2aj4XLNd0oxSmkSVMptjgxvvtEx
-6KWJz93Y8s0Ffx2HK/Px9WdlAw7RZMS7vxZRXum/frhXWCYENps7drQhcXVhbmcg
-PHF1YW5nbmd1eWVuQG9jdGVjaC5jb20udm4+iJkEExYKAEEWIQTi5aLwkW40yFCX
-Egp4OeXf9/EkegUCZyHdAgIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIe
-BwIXgAAKCRB4OeXf9/Ekeo6UAP4sYaCIqrfYWpmKwxpYFoyDYkd7fCVjHm+LAxI2
-3QQwXwEA0vLaJkGSSTwDj+5tKuJUSLB2YeUhymAzFlHkicqhaw6ciwRnId0CEgor
-BgEEAZdVAQUBAQdAwvXMoe1neOddmA5KtnaycI5QgLQ0Z4oNeg8qakPpIjEDAQgH
-/gcDAuX6GkOa2R7UysvXl/58/YdRvm57hlm2ldeu+CcZ7weFuaAU3Dldw70Trx3i
-60Nbd2QJwBok5GRnIM2YNLzuZUYAhBgY/+EYcq1MrK9nuT+IfgQYFgoAJhYhBOLl
-ovCRbjTIUJcSCng55d/38SR6BQJnId0CAhsMBQkFo5qAAAoJEHg55d/38SR6H4gA
-/1bEK3E/ikQshMP3cap/EQrcibpPxzQmV9KtAIcnldaNAP9t+iYCijZ5qU0PGgls
-NA6tczG/LYsBTwGmhdPkQ+dMBA==
-=roG3
+          GPG_PUBLIC_KEY: ${{ secrets.GPG_PUBLIC_KEY }}
+          GPG_SECRET_KEY: ${{ secrets.GPG_SECRET_KEY }}
 
       - name: Step 3 - Set up Maven Central Repository
         uses: actions/setup-java@v3
@@ -76,25 +32,12 @@ NA6tczG/LYsBTwGmhdPkQ+dMBA==
           server-id: central
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-          gpg-private-key: lIYEZyHdAhYJKwYBBAHaRw8BAQdATet135GUVtew+TwNxlPign31+sPfrRT6ohNw
-HdPlAVD+BwMCrqg3IZUl2WnK0DFviO6y57uUo2aj4XLNd0oxSmkSVMptjgxvvtEx
-6KWJz93Y8s0Ffx2HK/Px9WdlAw7RZMS7vxZRXum/frhXWCYENps7drQhcXVhbmcg
-PHF1YW5nbmd1eWVuQG9jdGVjaC5jb20udm4+iJkEExYKAEEWIQTi5aLwkW40yFCX
-Egp4OeXf9/EkegUCZyHdAgIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIe
-BwIXgAAKCRB4OeXf9/Ekeo6UAP4sYaCIqrfYWpmKwxpYFoyDYkd7fCVjHm+LAxI2
-3QQwXwEA0vLaJkGSSTwDj+5tKuJUSLB2YeUhymAzFlHkicqhaw6ciwRnId0CEgor
-BgEEAZdVAQUBAQdAwvXMoe1neOddmA5KtnaycI5QgLQ0Z4oNeg8qakPpIjEDAQgH
-/gcDAuX6GkOa2R7UysvXl/58/YdRvm57hlm2ldeu+CcZ7weFuaAU3Dldw70Trx3i
-60Nbd2QJwBok5GRnIM2YNLzuZUYAhBgY/+EYcq1MrK9nuT+IfgQYFgoAJhYhBOLl
-ovCRbjTIUJcSCng55d/38SR6BQJnId0CAhsMBQkFo5qAAAoJEHg55d/38SR6H4gA
-/1bEK3E/ikQshMP3cap/EQrcibpPxzQmV9KtAIcnldaNAP9t+iYCijZ5qU0PGgls
-NA6tczG/LYsBTwGmhdPkQ+dMBA==
-=roG3
+          gpg-private-key: ${{ secrets.GPG_SECRET_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
       - name: Step 3 - Publish Package to Maven Central
         env:
-          MAVEN_USERNAME: HEL0MCwN
-          MAVEN_PASSWORD: h3QnqdcJ9IWzF9rr0Ol+XAf+rbNq2PV6EstEcMhEdFsf
-          MAVEN_GPG_PASSPHRASE: 0562F50ED02ED0E78E9B4B40964C0152D4DCA411
+          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: mvn clean deploy -P release -DskipTests --batch-modeSetting Up Github Secrets
