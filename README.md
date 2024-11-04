@@ -15,7 +15,7 @@ Local computer:
 
 Result:
 | Benchmark    						| (N) 		|  Mode  	| Cnt 		| Score 		| 		| Error	 		|	 Units 	|
-| -------- 							| ------- 	|  -------  |-------   	|------- 		|-------|------- 		|------- 	| 
+| -------- 							| ------- 	|  -------  |-------   	|------- 		|-------|------- 		|------- 	|
 | BenchmarkLoop.loopForFlexJson		| 10000000 	|	avgt	|	8		|124901.560		|	+	|	16257.584	|	ms/op	|
 | BenchmarkLoop.loopForGson 		| 10000000  |	avgt	|	8		|172903.027		|	+	|	9400.753	|	ms/op	|
 | BenchmarkLoop.loopForJSONSimple   | 10000000  |	avgt	|	8		|133672.380		|	+	|	9083.245	|	ms/op	|
@@ -30,7 +30,7 @@ Download the [JSON0 jar file](https://drive.google.com/file/d/1SxBHkMswdQY70T9e8
 *import the library:*
 
 	import snailteam.core.json.JSON0
-	
+
 *Build JSON format with Java objects as inputs:*
 
 	JSON0 json = new JSON0();
@@ -50,3 +50,4 @@ Download the [JSON0 jar file](https://drive.google.com/file/d/1SxBHkMswdQY70T9e8
 ## License
 
 JSON0 is released under the Apache 2.0 license.
+
