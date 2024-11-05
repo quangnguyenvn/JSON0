@@ -7,7 +7,7 @@
   <name>octech-json-zero</name>
   <description>JSON0 is the fastest Java library that converts Java Objects into their JSON format.</description>
   <url>https://github.com/quangnguyenvn/JSON0</url>
-  
+
   <!-- License -->
   <licenses>
     <license>
@@ -15,7 +15,7 @@
         <url>http://www.apache.org/licenses/LICENSE-2.0</url>
     </license>
   </licenses>
-  
+
   <!--Developer Information-->
   <developers>
   		<developer>
@@ -25,14 +25,14 @@
     		<organization>snailteam</organization>
   		</developer>
   </developers>
-  
+
   <!--SCM Information-->
   <scm>
     <url>https://github.com/quangnguyenvn/JSON0</url>
     <connection>scm:git@github.com:quangnguyenvn/JSON0.git</connection>
     <developerConnection>scm:git:ssh://github.com:quangnguyenvn/JSON0.git</developerConnection>
   </scm>
-  
+
 <!--Profile-->
 <profiles>
   <profile>
@@ -144,8 +144,10 @@
   <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
   <central-publishing-maven-plugin.version>0.3.0</central-publishing-maven-plugin.version>
   <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
-  <maven-gpg-plugin.version>1.5</maven-gpg-plugin.version>
+  <maven-gpg-plugin.version>1.8</maven-gpg-plugin.version>
   <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
   <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+  <maven.compiler.source>1.8</maven.compiler.source>
+  <maven.compiler.target>1.8</maven.compiler.target>
  </properties>
 </project>
