@@ -126,7 +126,7 @@
 </profiles>
 
 <!--distributionManagement-->
-<distributionManagement>
+<!-- <distributionManagement>
     <snapshotRepository>
        <id>ossrh</id>
        <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
@@ -135,7 +135,14 @@
        <id>ossrh</id>
        <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
-</distributionManagement>
+</distributionManagement> -->
+ <distributionManagement>
+    <repository>
+        <id>github</id>
+        <name>maven-JSON0</name>
+        <url>https://maven.pkg.github.com/quangnguyenvn/JSON0</url>
+    </repository>
+  </distributionManagement>
 
 <!--properties-->
 <properties>
