@@ -143,6 +143,7 @@
         <url>https://maven.pkg.github.com/quangnguyenvn/JSON0</url>
     </repository>
   </distributionManagement>
+  
 
 <!--properties-->
 <properties>
@@ -159,9 +160,3 @@
  </properties>
 </project>
 
-<repositories>
-  <repository>
-    <id>github</id>
-    <url>https://maven.pkg.github.com/quangnguyenvn/JSON0</url>
-  </repository>
-</repositories>
