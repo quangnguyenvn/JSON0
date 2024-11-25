@@ -2,7 +2,7 @@
   <!--Project Coordinates-->
   <modelVersion>4.0.0</modelVersion>
   <groupId>snailteam.core</groupId>
-  <artifactId>JSON0</artifactId>
+  <artifactId>json0</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>octech-json-zero</name>
   <description>JSON0 is the fastest Java library that converts Java Objects into their JSON format.</description>
@@ -143,7 +143,6 @@
         <url>https://maven.pkg.github.com/quangnguyenvn/JSON0</url>
     </repository>
   </distributionManagement>
-  
 
 <!--properties-->
 <properties>
