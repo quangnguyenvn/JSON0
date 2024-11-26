@@ -31,7 +31,7 @@ Result:
 
  *configure on maven:*
 
- ```
+```
 	<repositories>
 		<repository>
 			<id>github</id>
@@ -39,13 +39,14 @@ Result:
 			<url>https://maven.pkg.github.com/quangnguyenvn/JSON0</url>
 		</repository>
 	</repositories>
-  <dependencies>
-   <dependency>
-    <groupId>snailteam.core</groupId>
-    <artifactId>json0</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </dependency>
- </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>snailteam.core</groupId>
+			<artifactId>json0</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
 ```
 *Build JSON format with Java objects as inputs:*
 
