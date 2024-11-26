@@ -28,7 +28,7 @@ Since there are some complicated issues when deploying on Maven Central from the
 
 ### Step 1
 
-Firstly, get your github token. Navigate to <strong>Your Github Account</strong> -> <strong>Settings</strong> -> <strong> <> Developer settings </strong> -> <strong> Personal access tokens </strong> -> <strong>Tokens (classic)</strong> -> <strong>Generate new token (classic)</strong> -> tick on `read:packages` and click `Generate token`. Then keep this github token.
+Firstly, you need get your github token (if you still don't have github account, please create one).Then, Navigate to <strong>Your Github Account</strong> -> <strong>Settings</strong> -> <strong> <> Developer settings </strong> -> <strong> Personal access tokens </strong> -> <strong>Tokens (classic)</strong> -> <strong>Generate new token (classic)</strong> -> tick on `read:packages` and click `Generate token`. Please, keep this github token.
 
 Secondly, update file settings.xml in the folder .m2, the folder .m2 should be in the similar path: C:\Users\YourUserName\.m2\settings.xml, then add following information:
 
