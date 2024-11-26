@@ -32,12 +32,27 @@ Download the [JSON0 jar file](https://drive.google.com/file/d/1SxBHkMswdQY70T9e8
 	import snailteam.core.json.JSON0
 
  *configure on maven:*
+
+ 
  ```
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>https://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>github</id>
+			<name>maven-JSON0</name>
+			<url>https://maven.pkg.github.com/quangnguyenvn/JSON0</url>
+		</repository>
+	</repositories>
+  <dependencies>
    <dependency>
     <groupId>snailteam.core</groupId>
     <artifactId>json0</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </dependency>
+ </dependencies>
 ```
 *Build JSON format with Java objects as inputs:*
 
