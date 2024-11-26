@@ -24,9 +24,27 @@ Result:
 
 ## Installation
 
-## Examples
+Since there are some complicated issues when deploying on Maven Central from the early of 2024. Then this library will be deployed on Github Packages. The configuration process included two steps.
 
- *configure on maven:*
+### Step 1
+
+Firstly, get your github token. Navigate to your account -> Settings -> <> Developer settings -> Personal access tokens -> Tokens (classic) -> Generate new token (classic) -> tick on `read:packages` and click `Generate token`. Then keep this github token.
+
+Secondly, update file settings.xml in the folder .m2, the folder .m2 should be in the similar path: C:\Users\YourUserName\.m2\settings.xml, then add following information:
+
+```
+  <servers>
+    <server>
+      <id>github</id>
+      <username>your github username</username>
+      <password>your github token</password>
+    </server>
+  </servers>
+
+```
+
+### Step 2
+ *configure on pom.xml:*
 
 ```
 	<repositories>
