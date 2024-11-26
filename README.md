@@ -33,11 +33,11 @@ Download the [JSON0 jar file](https://drive.google.com/file/d/1SxBHkMswdQY70T9e8
 
  *configure on maven:*
  
- <dependency>
-  <groupId>snailteam.core</groupId>
-  <artifactId>json0</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-</dependency>
+   <dependency>
+    <groupId>snailteam.core</groupId>
+    <artifactId>json0</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </dependency>
 
 *Build JSON format with Java objects as inputs:*
 
