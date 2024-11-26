@@ -1,6 +1,6 @@
 # JSON0
 
-JSON0 is the fastest Java library that converts Java Objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team used algorithms to maximize the reuse and limit the abuse of creating new objects in Java that could consume a lot of memory.
+JSON0 is the fastest Java library that converts Java Objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team used algorithms to maximize logics reusage and limit the abuse of creating new objects in Java that could consume a lot of memory.
 
 Performance Benchmark using JHM library with the result shown below:
 
