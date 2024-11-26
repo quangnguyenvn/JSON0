@@ -24,8 +24,6 @@ Result:
 
 ## Installation
 
-Download the [JSON0 jar file](https://drive.google.com/file/d/1SxBHkMswdQY70T9e8Dz0TzNWJKKHV-dY/view?usp=sharing).
-
 ## Examples
 *import the jar library:*
 
@@ -33,13 +31,8 @@ Download the [JSON0 jar file](https://drive.google.com/file/d/1SxBHkMswdQY70T9e8
 
  *configure on maven:*
 
- 
  ```
 	<repositories>
-		<repository>
-			<id>central</id>
-			<url>https://repo1.maven.org/maven2</url>
-		</repository>
 		<repository>
 			<id>github</id>
 			<name>maven-JSON0</name>
