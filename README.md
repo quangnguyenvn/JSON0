@@ -24,7 +24,7 @@ Result:
 
 ## Installation
 
-Since there are some complicated issues when deploying on Maven Central from the early of 2024. Then this library will be deployed on Github Packages. The configuration process included two steps.
+Since there are some complicated issues when deploying on Maven Central from the early of 2024. This library will be deployed on Github Packages. The configuration process included two steps.
 
 ### Step 1
 
