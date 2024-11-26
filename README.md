@@ -25,9 +25,6 @@ Result:
 ## Installation
 
 ## Examples
-*import the jar library:*
-
-	import snailteam.core.json.JSON0
 
  *configure on maven:*
 
