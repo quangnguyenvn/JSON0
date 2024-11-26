@@ -44,7 +44,7 @@ Secondly, update file <em>settings.xml</em> in the folder .m2, the folder .m2 sh
 ```
 
 ### Step 2
- *configure on pom.xml:*
+ *configure on pom.xml of your maven project:*
 
 ```
 	<repositories>
