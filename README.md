@@ -88,9 +88,9 @@ When your application creates many objects in a short period of time, this can l
 
 While object creation in Java is generally efficient, there are some cases where it can be costly, particularly if not managed appropriately. Here are some of the elements that can lead to greater costs:
 -	Use fixed size for object.
+-	Optimize data structures by utilizing bytes.
 -	Reduce unnecessary object creation in frequently called methods or loops in arrays.
 -	Use Object Pools to reuse objects instead of generating them regularly. This can reduce the overhead associated with object creation and garbage collection.
--	Optimize data structures by utilizing bytes.
 The performance of your Java applications can be significantly improved by carefully managing object lifecycles and selecting appropriate data structures. 
 JSON0 implements these approaches above for a better performance when comparing with other  and this article will mention more details about these approaches.
 
