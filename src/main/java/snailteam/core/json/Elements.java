@@ -1,4 +1,4 @@
-package json;
+package snailteam.core.json;
 
 import java.util.Map;
 import java.util.HashMap;

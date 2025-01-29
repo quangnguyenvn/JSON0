@@ -1,4 +1,4 @@
-package json;
+package snailteam.core.json;
 
 public class Element {
     public String key;
