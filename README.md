@@ -84,7 +84,7 @@ Secondly, update file <em>settings.xml</em> in the folder .m2, the folder .m2 sh
 In a modern JVM, the cost of creating a Java object may be greatly exaggerated because Java essentially increments a pointer. However, there are numerous other situations in which we should consider the cost of creating objects, such as when we focus on high frequency.
 When your application creates many objects in a short period of time, this can lead to:
 -	Higher CPU utilization: The GC itself consumes CPU cycles, potentially impacting application performance.
--	Increased GC pauses: The GC needs to stop application threads to reclaim memory, leading to pauses and reduced application responsiveness, which can increase the latency of requests, especially in real-time or low-latency applications.
+-	Increased GC pauses: The GC needs to stop application threads to reclaim memory, leading to pauses and reduced application responsiveness, which can increase the latency of requests, especially in real-time or low-latency applications.\
 While object creation in Java is generally efficient, there are some cases where it can be costly, particularly if not managed appropriately. Here are some of the elements that can lead to greater costs:
 -	Use fixed size for object.
 -	Reduce unnecessary object creation in frequently called methods or loops in arrays.
