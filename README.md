@@ -146,7 +146,7 @@ In Java, a byte is a primitive data type that can hold an 8-bit signed two’s c
 One of the main advantages of using byte in Java is its small size. A byte takes up only 8 bits of memory, making it a memory-efficient choice when dealing with large amounts of data.
 The byte data type in Java plays a crucial role in memory-efficient programming. Its small size (8 bits) makes it an ideal choice when working with large amounts of data. For example, when reading data from a file or a network, using byte allows you to process the data byte by byte, reducing the memory footprint of your program.
 
-## Conclusion
+## In a nutshell
 
 Using Object Pools in Java can significantly enhance performance, especially when dealing with expensive-to-create objects like byte arrays. The byte data type in Java is a powerful tool for developers aiming to optimize the memory footprint of their applications. 
 The approaches are perfect for simulations where large data sets are involved and every byte of memory count, understanding and utilizing byte offers an edge in creating efficient, high-performing Java applications. However, adopting byte must be considered in the context of its value range limitations and should be aligned with the specific needs of the application being developed.
