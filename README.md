@@ -105,6 +105,7 @@ Fixed size is critical for memory management and program speed; it is not merely
 -	Implementing arrays requires consistent element sizes. Knowing the size of each element enables the system to efficiently calculate the memory offset required to access array indices.
 
 -	Fixed-size elements reduce memory fragmentation and overhead. They ensure that memory is used efficiently and predictably.
+
 The fixed size for the JSON0 is 512 elements.
 
 ## Use byte data type
