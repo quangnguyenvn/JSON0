@@ -111,8 +111,10 @@ The fixed size for the JSON0 is 512 elements.
 ## Use byte data type
 
 In Java, the byte data type is used for memory efficiency since a byte is an 8-bit signed integer, it can store values from -128 to 127. This makes it useful for saving memory in large arrays where the memory savings can be significant compared to using larger data types like int. Using the byte data type in programming can be beneficial in several scenarios:
-It will improve memory efficiency: It is useful when you need to save memory, especially in large arrays were using int (which is 32 bits) would be wasteful.
-Bytecode and Serialization: In languages like Java, bytecode is the intermediate representation of your code that the JVM executes. Serialization, which involves converting objects into a byte stream, also relies on bytes. Smaller objects lead to faster serialization and deserialization.
+
+- It will improve memory efficiency: It is useful when you need to save memory, especially in large arrays were using int (which is 32 bits) would be wasteful.
+- Bytecode and Serialization: In languages like Java, bytecode is the intermediate representation of your code that the JVM executes. Serialization, which involves converting objects into a byte stream, also relies on bytes. Smaller objects lead to faster serialization and deserialization.
+  
 By using the byte type appropriately, you can optimize memory usage and improve the efficiency of your applications.
 
 ## Use array effectively to save memory in Java
