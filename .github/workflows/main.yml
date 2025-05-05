@@ -21,6 +21,8 @@ jobs:
           echo "${{ secrets.GPG_PUBLIC_KEY }}" | gpg --import
           echo "${{ secrets.GPG_SECRET_KEY }}" | gpg --import --no-tty --batch --yes
           sudo apt update && sudo apt install gnupg
+          wget https://download.docker.com/linux/ubuntu/gpg 
+          apt-key add gpg
         env:
           GPG_PUBLIC_KEY: ${{ secrets.GPG_PUBLIC_KEY }}
           GPG_SECRET_KEY: ${{ secrets.GPG_SECRET_KEY }}
