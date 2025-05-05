@@ -16,12 +16,6 @@ jobs:
         with:
           ref: ${{ github.ref_name }}  # Dynamically use branch name
           
-      - name: Step 1 - Import GPG Key
-        uses: crazy-max/ghaction-import-gpg@v1
-        env:
-         GPG_PRIVATE_KEY: ${{ secrets.GPG_SECRET_KEY }}
-         PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-
       - name: Step 2 - Import GPG Key
         run: |
           echo "${{ secrets.GPG_PUBLIC_KEY }}" | gpg --import
