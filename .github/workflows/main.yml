@@ -11,12 +11,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1 - Checkout code
+      - name: Step 0 - Checkout code
         uses: actions/checkout@v3
         with:
           ref: ${{ github.ref_name }}  # Dynamically use branch name
           
-      - name: Import GPG Key
+      - name: Step 1 - Import GPG Key
         uses: crazy-max/ghaction-import-gpg@v1
         env:
          GPG_PRIVATE_KEY: ${{ secrets.GPG_SECRET_KEY }}
