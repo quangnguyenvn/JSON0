@@ -18,7 +18,7 @@ jobs:
 
       - name: Step 2 - Import GPG Key
         run: |
-          echo "${{ env.GPG_PUBLIC_KEY }}" | gpg --import
+          echo $GPG_PUBLIC_KEY | gpg --import
           echo "${{ env.GPG_SECRET_KEY }}" | gpg --import --no-tty --batch --yes
         env:
           GPG_PUBLIC_KEY: ${{ env.GPG_PUBLIC_KEY }}
