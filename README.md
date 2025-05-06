@@ -1,6 +1,6 @@
 # JSON0
 
-JSON0 is a high-performance Java library that converts objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team maximize logics reusage and limit the abuse of creating new objects in Java that could consume a lot of memory.
+JSON0 is a high-performance Java library that converts objects into their JSON format. This library  was designed to handle huge converting tasks with minimum time.
 
 Performance Benchmark using JHM library with the result shown below:
 
@@ -38,8 +38,8 @@ JSON0 is already deployed on Maven Central Repositories.
 *Build JSON format with Java objects as inputs:*
 
 	JSON0 json = new JSON0();
-	json.put("place1","hoi an town");
-	json.put("daylength",3);
+	json.put("place1", "hoi an town");
+	json.put("daylength", 3);
 	JSON0 nested = new JSON0();
 	nested.put("schedule", json);
 
