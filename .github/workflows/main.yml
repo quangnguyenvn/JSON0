@@ -1,7 +1,10 @@
-name: Publish package to the Maven Central Repository
+name: Maven Central Deployment
 on:
-  release:
-    types: [created]
+    workflow_dispatch:
+      inputs:
+        version:
+          description: 'Version to publish'
+          required: true
 jobs:
   publish:
     runs-on: ubuntu-latest
