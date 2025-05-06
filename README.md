@@ -24,43 +24,15 @@ Result:
 
 ## Installation
 
-Since there are some complicated issues when deploying on Maven Central from the early of 2024. This library will be deployed on Github Packages. The configuration process included two steps.
+JSON0 is already deployed on Maven Central Repositories.
 
-### Step 1
+### Add the dependency below in your pom.xml
 
-Firstly, you need get your github token (if you still don't have github account, please create one).Then, Navigate to <strong>Your Github Account</strong> -> <strong>Settings</strong> -> <strong> <> Developer settings </strong> -> <strong> Personal access tokens </strong> -> <strong>Tokens (classic)</strong> -> <strong>Generate new token (classic)</strong> -> tick on `read:packages` and click `Generate token`. Please, keep this github token.
-
-Secondly, update file <em>settings.xml</em> in the folder .m2, the folder .m2 should be in the similar path: <em>C:\Users\YourUserName\.m2\settings.xml</em>, then add following information:
-
-```
-  <servers>
-    <server>
-      <id>github</id>
-      <username>your github username</username>
-      <password>your github token</password>
-    </server>
-  </servers>
-
-```
-
-### Step 2
- *configure on pom.xml of your maven project:*
-
-```
-	<repositories>
-		<repository>
-			<id>github</id>
-			<name>maven-JSON0</name>
-			<url>https://maven.pkg.github.com/quangnguyenvn/JSON0</url>
-		</repository>
-	</repositories>
-	<dependencies>
-		<dependency>
-			<groupId>snailteam.core</groupId>
-			<artifactId>json0</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
+<dependency>
+    	<groupId>io.github.kwangng</groupId>
+    	<artifactId>JSON0</artifactId>
+    	<version>1.0.0</version>
+</dependency>
 
 ```
 *Build JSON format with Java objects as inputs:*
