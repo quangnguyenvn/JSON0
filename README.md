@@ -27,7 +27,7 @@ Result:
 JSON0 is already deployed on Maven Central Repositories.
 
 ### Add the dependency below in your pom.xml
-
+```
 <dependency>
     	<groupId>io.github.kwangng</groupId>
     	<artifactId>JSON0</artifactId>
