@@ -1,6 +1,6 @@
 # JSON0
 
-JSON0 is the fastest Java library that converts Java Objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team used algorithms to maximize logics reusage and limit the abuse of creating new objects in Java that could consume a lot of memory.
+JSON0 is a high-performance Java library that converts objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team maximize logics reusage and limit the abuse of creating new objects in Java that could consume a lot of memory.
 
 Performance Benchmark using JHM library with the result shown below:
 
@@ -59,7 +59,7 @@ When your application creates many objects in a short period of time, this can l
 -	Increased GC pauses: The GC needs to stop application threads to reclaim memory, leading to pauses and reduced application responsiveness, which can increase the latency of requests, especially in real-time or low-latency applications.
 
 While object creation in Java is generally efficient, there are some cases where it can be costly, particularly if not managed appropriately. Here are some of the elements that can lead to greater costs:
--	Use fixed size for object.
+-	Used fixed size for object.
 -	Optimize data structures by utilizing bytes.
 -	Reduce unnecessary object creation in frequently called methods or loops in arrays.
 -	Use Object Pools to reuse objects instead of generating them regularly. This can reduce the overhead associated with object creation and garbage collection.
