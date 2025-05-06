@@ -28,105 +28,133 @@
 
   <!--SCM Information-->
   <scm>
-    <url>https://github.com/quangnguyenvn/JSON0</url>
-    <connection>scm:git@github.com:quangnguyenvn/JSON0.git</connection>
-    <developerConnection>scm:git:ssh://github.com:quangnguyenvn/JSON0.git</developerConnection>
+    <connection>scm:git:git://github.com/quangnguyenvn/JSON0.git</connection>
+    <developerConnection>scm:git:ssh://github.com/quangnguyenvn/JSON0.git</developerConnection>
+    <url>https://github.com/quangnguyenvn/JSON0/tree/main</url>
   </scm>
 
-<!--Profile-->
+
+<!--Maven Plugin for Publishing-->
+<build>
+ <plugins>
+   <plugin>
+     <groupId>org.apache.maven.plugins</groupId>
+     <artifactId>maven-compiler-plugin</artifactId>
+     <version>3.11.0</version>
+     <configuration>
+       <source>${java.version}</source>
+       <target>${java.version}</target>
+     </configuration>
+     </plugin>
+    <plugin>
+      <groupId>org.sonatype.central</groupId>
+      <artifactId>central-publishing-maven-plugin</artifactId>
+      <version>0.5.0</version>
+      <extensions>true</extensions>
+      <configuration>
+        <publishingServerId>central</publishingServerId>
+        <tokenAuth>true</tokenAuth>
+      </configuration>
+    </plugin>
+    <!-- GPG Signed Components -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-gpg-plugin</artifactId>
+      <version>3.1.0</version>
+      <executions>
+        <execution>
+          <id>sign-artifacts</id>
+          <phase>verify</phase>
+          <goals>
+            <goal>sign</goal>
+          </goals>
+        </execution>
+      </executions>
+           <configuration>
+        <gpgArguments>
+          <arg>--pinentry-mode</arg>
+          <arg>loopback</arg>
+        </gpgArguments>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+
 <profiles>
   <profile>
-    <id>release</id>
-    <build>
-<!--plugins-->
-  <plugins>
-   <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>${maven-compiler-plugin.version}</version>
-    <configuration>
-     <source>${java.version}</source>
-     <target>${java.version}</target>
-    </configuration>
-   </plugin>
-   <plugin>
-    <groupId>org.sonatype.central</groupId>
-    <artifactId>central-publishing-maven-plugin</artifactId>
-    <version>${central-publishing-maven-plugin.version}</version>
-    <extensions>true</extensions>
-    <configuration>
-     <publishingServerId>central</publishingServerId>
-     <tokenAuth>true</tokenAuth>
-    </configuration>
-   </plugin>
-   <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-source-plugin</artifactId>
-    <version>${maven-source-plugin.version}</version>
-    <executions>
-     <execution>
-      <id>attach-sources</id>
-      <goals>
-       <goal>jar-no-fork</goal>
-      </goals>
-     </execution>
-    </executions>
-   </plugin>
-   <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-javadoc-plugin</artifactId>
-    <version>${maven-javadoc-plugin.version}</version>
-    <configuration>
-     <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
-    </configuration>
-    <executions>
-     <execution>
-      <id>attach-javadocs</id>
-      <goals>
-       <goal>jar</goal>
-      </goals>
-     </execution>
-    </executions>
-   </plugin>
-   <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-gpg-plugin</artifactId>
-    <version>${maven-gpg-plugin.version}</version>
-    <executions>
-     <execution>
-      <id>sign-artifacts</id>
-      <phase>verify</phase>
-      <goals>
-       <goal>sign</goal>
-      </goals>
+   <id>release</id>
+   <build>
+    <plugins>
+     <plugin>
+      <groupId>org.sonatype.central</groupId>
+      <artifactId>central-publishing-maven-plugin</artifactId>
+      <version>0.4.0</version>
+      <extensions>true</extensions>
       <configuration>
-       <keyname>0xAD8AB018</keyname>
+       <publishingServerId>central</publishingServerId>
+       <tokenAuth>true</tokenAuth>
+       <autoPublish>true</autoPublish>
+      </configuration>
+     </plugin>
+     <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-source-plugin</artifactId>
+      <version>3.3.0</version>
+      <executions>
+       <execution>
+        <id>attach-sources</id>
+        <phase>verify</phase>
+        <goals>
+         <goal>jar-no-fork</goal>
+        </goals>
+       </execution>
+      </executions>
+     </plugin>
+     <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-javadoc-plugin</artifactId>
+      <version>3.6.3</version>
+      <executions>
+       <execution>
+        <id>attach-javadoc</id>
+        <goals>
+         <goal>jar</goal>
+        </goals>
+       </execution>
+      </executions>
+      <configuration>
+       <stylesheet>java</stylesheet>
+       <doclint>none</doclint>
+      </configuration>
+     </plugin>
+     <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-gpg-plugin</artifactId>
+      <version>3.1.0</version>
+      <executions>
+       <execution>
+        <id>sign-artifacts</id>
+        <phase>verify</phase>
+        <goals>
+         <goal>sign</goal>
+        </goals>
+       </execution>
+      </executions>
+      <configuration>
        <gpgArguments>
         <arg>--pinentry-mode</arg>
         <arg>loopback</arg>
        </gpgArguments>
       </configuration>
-     </execution>
-    </executions>
-   </plugin>
-   <plugin>
-    <groupId>org.sonatype.plugins</groupId>
-    <artifactId>nexus-staging-maven-plugin</artifactId>
-    <version>${nexus-staging-maven-plugin.version}</version>
-    <extensions>true</extensions>
-    <configuration>
-     <serverId>ossrh</serverId>
-     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-     <autoReleaseAfterClose>true</autoReleaseAfterClose>
-    </configuration>
-   </plugin>
- 	</plugins>
-    </build>
+     </plugin>
+    </plugins>
+   </build>
   </profile>
-</profiles>
+ </profiles>
+
 
 <!--distributionManagement-->
-<!-- <distributionManagement>
+ <distributionManagement>
     <snapshotRepository>
        <id>ossrh</id>
        <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
@@ -135,14 +163,20 @@
        <id>ossrh</id>
        <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
-</distributionManagement> -->
- <distributionManagement>
+ </distributionManagement>
+ <!-- <distributionManagement>
     <repository>
         <id>github</id>
         <name>maven-JSON0</name>
         <url>https://maven.pkg.github.com/quangnguyenvn/JSON0</url>
     </repository>
-  </distributionManagement>
+  </distributionManagement> -->
+  <!-- <distributionManagement>
+          <site>
+            <id>sourceforge</id>
+            <url>http://json0.sourceforge.net/</url>
+          </site>
+   </distributionManagement> -->
 
 <!--properties-->
 <properties>
