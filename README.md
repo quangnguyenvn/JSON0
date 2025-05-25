@@ -1,6 +1,6 @@
 # JSON0
 
-JSON0 is the fastest Java library that converts Java Objects into their JSON format. This library focused on performance and was designed to handle huge converting tasks with minimum time. The development team used algorithms to maximize logics reusage and limit the abuse of creating new objects in Java that could consume a lot of memory.
+JSON0 is a high-performance Java library that converts objects into their JSON format. This library  was designed to handle huge converting tasks with minimum time.
 
 Performance Benchmark using JHM library with the result shown below:
 
@@ -24,50 +24,22 @@ Result:
 
 ## Installation
 
-Since there are some complicated issues when deploying on Maven Central from the early of 2024. This library will be deployed on Github Packages. The configuration process included two steps.
+JSON0 is already deployed on Maven Central Repositories.
 
-### Step 1
-
-Firstly, you need get your github token (if you still don't have github account, please create one).Then, Navigate to <strong>Your Github Account</strong> -> <strong>Settings</strong> -> <strong> <> Developer settings </strong> -> <strong> Personal access tokens </strong> -> <strong>Tokens (classic)</strong> -> <strong>Generate new token (classic)</strong> -> tick on `read:packages` and click `Generate token`. Please, keep this github token.
-
-Secondly, update file <em>settings.xml</em> in the folder .m2, the folder .m2 should be in the similar path: <em>C:\Users\YourUserName\.m2\settings.xml</em>, then add following information:
-
+### Add the dependency below in your pom.xml
 ```
-  <servers>
-    <server>
-      <id>github</id>
-      <username>your github username</username>
-      <password>your github token</password>
-    </server>
-  </servers>
-
-```
-
-### Step 2
- *configure on pom.xml of your maven project:*
-
-```
-	<repositories>
-		<repository>
-			<id>github</id>
-			<name>maven-JSON0</name>
-			<url>https://maven.pkg.github.com/quangnguyenvn/JSON0</url>
-		</repository>
-	</repositories>
-	<dependencies>
-		<dependency>
-			<groupId>snailteam.core</groupId>
-			<artifactId>json0</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
+<dependency>
+    	<groupId>io.github.kwangng</groupId>
+    	<artifactId>JSON0</artifactId>
+    	<version>1.0.0</version>
+</dependency>
 
 ```
 *Build JSON format with Java objects as inputs:*
 
 	JSON0 json = new JSON0();
-	json.put("place1","hoi an town");
-	json.put("daylength",3);
+	json.put("place1", "hoi an town");
+	json.put("daylength", 3);
 	JSON0 nested = new JSON0();
 	nested.put("schedule", json);
 
@@ -87,7 +59,7 @@ When your application creates many objects in a short period of time, this can l
 -	Increased GC pauses: The GC needs to stop application threads to reclaim memory, leading to pauses and reduced application responsiveness, which can increase the latency of requests, especially in real-time or low-latency applications.
 
 While object creation in Java is generally efficient, there are some cases where it can be costly, particularly if not managed appropriately. Here are some of the elements that can lead to greater costs:
--	Use fixed size for object.
+-	Used fixed size for object.
 -	Optimize data structures by utilizing bytes.
 -	Reduce unnecessary object creation in frequently called methods or loops in arrays.
 -	Use Object Pools to reuse objects instead of generating them regularly. This can reduce the overhead associated with object creation and garbage collection.
