@@ -1,4 +1,4 @@
-package snailteam.core.json;
+package pineteam.java.core.json;
 
 import java.util.Map;
 import java.util.HashMap;

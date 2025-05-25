@@ -1,4 +1,4 @@
-package snailteam.core.json;
+package pineteam.java.core.json;
 
 public class Element {
     public String key;
