@@ -1,0 +1,18 @@
+[anhvu@Linux17 json]$ java -Xms1500M -cp ./:/lib/java/json-simple-1.1.1.jar JSONSimplePerf
+Produce 1024 output using JSONSimple in 39 ms
+Produce 1048576 output using JSONSimple in 4617 ms
+Produce 1048576 output using JSONSimple in 3059 ms
+Produce 1048576 output using JSONSimple in 3098 ms
+Produce 1048576 output using JSONSimple in 3118 ms
+Produce 1048576 output using JSONSimple in 3080 ms
+Produce 1048576 output using JSONSimple in 3106 ms
+Produce 1048576 output using JSONSimple in 3093 ms
+Produce 1048576 output using JSONSimple in 3062 ms
+Produce 1048576 output using JSONSimple in 3082 ms
+Produce 1048576 output using JSONSimple in 3004 ms
+Produce 1048576 output using JSONSimple in 3094 ms
+Produce 1048576 output using JSONSimple in 3013 ms
+Produce 1048576 output using JSONSimple in 3047 ms
+Produce 1048576 output using JSONSimple in 3050 ms
+Produce 1048576 output using JSONSimple in 3062 ms
+Produce 1048576 output using JSONSimple in 3068 ms

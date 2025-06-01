@@ -1,0 +1,21 @@
+[anhvu@Linux17 json]$ java -Xms1500M -cp ./:/lib/java/json.jar JSON0Perf                
+Produce 1024 output using JSON0 in 20 ms
+Produce 1048576 output using JSON0 in 1813 ms
+Produce 1048576 output using JSON0 in 1468 ms
+Produce 1048576 output using JSON0 in 1341 ms
+Produce 1048576 output using JSON0 in 1360 ms
+Produce 1048576 output using JSON0 in 1365 ms
+Produce 1048576 output using JSON0 in 1367 ms
+Produce 1048576 output using JSON0 in 1373 ms
+Produce 1048576 output using JSON0 in 1356 ms
+Produce 1048576 output using JSON0 in 1355 ms
+Produce 1048576 output using JSON0 in 1345 ms
+Produce 1048576 output using JSON0 in 1344 ms
+Produce 1048576 output using JSON0 in 1357 ms
+Produce 1048576 output using JSON0 in 1352 ms
+Produce 1048576 output using JSON0 in 1344 ms
+Produce 1048576 output using JSON0 in 1336 ms
+Produce 1048576 output using JSON0 in 1349 ms
+Produce 1048576 output using JSON0 in 1357 ms
+Produce 1048576 output using JSON0 in 1355 ms
+Produce 1048576 output using JSON0 in 1370 ms

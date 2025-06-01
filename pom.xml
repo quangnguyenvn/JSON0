@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.kwangng</groupId>
   <artifactId>JSON0</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.8</version>
 
   <name>octech-json-zero</name>
   <description>JSON0 is the fastest Java library that converts Java Objects into their JSON format.</description>
@@ -23,7 +23,7 @@
     		<id>quangnh</id>
     		<name>quangnh</name>
     		<email>quangnguyen@octech.com.vn</email>
-    		<organization>snailteam</organization>
+    		<organization>pineteam</organization>
   		</developer>
   </developers>
 
@@ -76,6 +76,19 @@
                     </execution>
                 </executions>
             </plugin>
+ <!--            build jar-->           
+            <plugin>
+            	<groupId>org.apache.maven.plugins</groupId>
+            	<artifactId>maven-jar-plugin</artifactId>
+            	<version>3.2.1</version>
+            	<configuration>
+                	<archive>
+                    	<manifest>
+                        	<mainClass>pineteam.json.JSON0</mainClass>
+                    	</manifest>
+                	</archive>
+            	</configuration>
+        	</plugin>
 <!--            pom, .asc-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
