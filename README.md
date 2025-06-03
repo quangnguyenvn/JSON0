@@ -1,4 +1,4 @@
-#JSON0
+# JSON0
 
 ## 1. Introduction
 
@@ -100,7 +100,7 @@ Get the element in JSON:
 Convert to String:
 
   json.toString()
-  
+
 ```
 
 ### Local PC Testing with JMH
