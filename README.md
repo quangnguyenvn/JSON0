@@ -69,8 +69,8 @@ JSON0 is already deployed on Maven Central Repositories.
     	<version>1.0.8</version>
 </dependency>
 
-```
-*Build JSON format with Java objects as inputs:*
+
+Build JSON format with Java objects as inputs:
 
   JSON0 json = new JSON0();
 
@@ -93,14 +93,14 @@ JSON0 is already deployed on Maven Central Repositories.
   drinks.put("Drink1", "Cafe Sua Da");
   drinks.put("Drink2", "Mot Hoi An");
 
-*Get the element in JSON:*
+Get the element in JSON:
 
   json.get("MustVisits");
 
-*Convert to String:*
+Convert to String:
 
   json.toString()
-
+  
 ```
 
 ### Local PC Testing with JMH
