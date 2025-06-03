@@ -72,34 +72,34 @@ JSON0 is already deployed on Maven Central Repositories.
 ```
 *Build JSON format with Java objects as inputs:*
 
-		JSON0 json = new JSON0();
+  JSON0 json = new JSON0();
 
-		json.reset();
-    json.put("Town",  "Hoi An Town");
-    json.put("DayLength", 3);
-    json.put("Vehicles", "Taxi or Bike");
+  json.reset();
+  json.put("Town",  "Hoi An Town");
+  json.put("DayLength", 3);
+  json.put("Vehicles", "Taxi or Bike");
 
-    JSON0 visits = json.createJSON("MustVisits");
-    visits.put("Morning", "Tra Que Vengetable Village");
-    visits.put("Afternoon", "The Japanese Bridge");
-    visits.put("Evening", "An Bang Beach");
+  JSON0 visits = json.createJSON("MustVisits");
+  visits.put("Morning", "Tra Que Vengetable Village");
+  visits.put("Afternoon", "The Japanese Bridge");
+  visits.put("Evening", "An Bang Beach");
 
-    JSON0 mustTry = json.createJSONArray("MustTries");
-    JSON0 foods = mustTry.createJSON("Foods");
-    foods.put("Food1", "Banh Mi, Banh Xeo");
-    foods.put("Food2", "Com Ga Hoi An");
+  JSON0 mustTry = json.createJSONArray("MustTries");
+  JSON0 foods = mustTry.createJSON("Foods");
+  foods.put("Food1", "Banh Mi, Banh Xeo");
+  foods.put("Food2", "Com Ga Hoi An");
 
-    JSON0 drinks = mustTry.createJSON("Drinks");
-    drinks.put("Drink1", "Cafe Sua Da");
-    drinks.put("Drink2", "Mot Hoi An");
+  JSON0 drinks = mustTry.createJSON("Drinks");
+  drinks.put("Drink1", "Cafe Sua Da");
+  drinks.put("Drink2", "Mot Hoi An");
 
 *Get the element in JSON:*
 
-    json.get("MustVisits");
+  json.get("MustVisits");
 
 *Convert to String:*
 
-    json.toString()
+  json.toString()
 
 
 ### Local PC Testing with JMH
