@@ -20,7 +20,7 @@ For producing JSON objects, we used json-simple library.
 
 The source code is in JSONSimplePerf.java. It’s pretty straight-forward.
 
-ProduceUsingJSONSimple method produces JSON objects using json-simple library, convert them to wire format. Note that we change them slightly between iterator and put them in global memory to prevent compiler optimizations. Parameter size specifies the number of objects will be produced
+Using JSONSimple method produces JSON objects using json-simple library, convert them to wire format. Note that we change them slightly between iterator and put them in global memory to prevent compiler optimizations. Parameter size specifies the number of objects will be produced
 
 In execute method, we run produceUsingJSONSimple with size about 1 million continuously a number of time (0 mean infinite) and print out the elapse time in between. Note that the first run with size only 1000 to warm up purpose.
 
