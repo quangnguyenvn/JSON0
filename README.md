@@ -54,7 +54,7 @@ The run output is in the file JSON0Output.txt
 We see a stable number of about 1.35s for producing 1 million JSON objects, which is more than double the performance of json-simple library.
 
 ## 7. In a nutshell
-While it’s rare nowadays, if problem is one of your main issue, using JSON0 could give it a boost. The library is straight-forward and easy to use.
+While it’s rare nowadays, the library helps developers boost performance through software optimizations, without relying on hardware upgrades. Furthermore, the library is easy to use.
 
 
 ## References & Installation
