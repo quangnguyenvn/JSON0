@@ -111,10 +111,22 @@ JHM library:
 https://github.com/openjdk/jmh
 
 Local computer:
-|JMH 1.33|
-|Java 16|
-|Maven 4.0|
-|CPU i5-7300|
+```
+JMH 1.33
+Java 16
+Maven 4.0
+CPU i5-7300
+```
+
+Tested library versions:
+```
+Gson: 2.11.0
+Jackson: 2.13.3
+Json-simple: 1.1.1
+Flexjson: 3.3
+JSON0: 1.0
+jmh: 1.33
+```
 
 Test source codes:
 https://github.com/quangnguyenvn/JSON0/tree/main/perf_test/java/jhm/octeam/com
