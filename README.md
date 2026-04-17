@@ -13,6 +13,15 @@
 
 ## 1. Introduction
 
+```text
+      _  ____   ___   _   _    ___
+     | |/ ___| / _ \ | \ | |  / _ \
+  _  | |\___ \| | | ||  \| | | | | |
+ | |_| | ___) | |_| || |\  | | |_| |
+  \___/ |____/ \___/ |_| \_|  \___/
+                  000000000
+```
+
 Recently, we needed to decide the message format for internal communication between modules in our financial software system. JSON got our attention because it has many advantages:
 
 - It's self-descriptive and flexible.
