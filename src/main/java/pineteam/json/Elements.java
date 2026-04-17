@@ -65,6 +65,35 @@ class Elements {
 		buf = new byte[buf.length << 1];
 	}
 
+	public final int getLength() {
+		return length;
+	}
+
+	public final void setLength(int length) {
+		this.length = length;
+	}
+
+	public final Map<String, Integer> snapshotKeysMap() {
+		if (keysMap == null) {
+			return null;
+		}
+		return new HashMap<String, Integer>(keysMap);
+	}
+
+	public final void restoreKeysMap(Map<String, Integer> snapshot) {
+		if (snapshot == null) {
+			keysMap = null;
+			return;
+		}
+
+		if (keysMap == null) {
+			keysMap = new HashMap<String, Integer>();
+		} else {
+			keysMap.clear();
+		}
+		keysMap.putAll(snapshot);
+	}
+
 	public final int put(String key, Object value, int head, int tail) {
 		int index = length;
 		increment();
@@ -116,7 +145,4 @@ class Elements {
 		return elements[index];
 	}
 
-	public final int getLength() {
-		return length;
-	}
 }

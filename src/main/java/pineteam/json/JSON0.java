@@ -2,6 +2,7 @@ package pineteam.json;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 public class JSON0 {
 
@@ -68,12 +69,20 @@ public class JSON0 {
 		return offset;
 	}
 
-	private static int copyKey(String key, byte[] buf, int offset) {
+	private static int copyKey(String key, byte[] buf, int offset, Charset charset) {
 		buf[offset++] = JSON_VALUE_QUOTE;
-		offset = copy(key, buf, offset, DEFAULT_CHAR_SET);
+		offset = copy(key, buf, offset, charset);
 		buf[offset++] = JSON_VALUE_QUOTE;
 		buf[offset++] = JSON_VALUE_DELIM;
 		return offset;
+	}
+
+	private static boolean isEscaped(byte[] buf, int pos, int startPos) {
+		int numEscapes = 0;
+		for (int i = pos - 1; i >= startPos && buf[i] == (byte) '\\'; i--) {
+			numEscapes++;
+		}
+		return (numEscapes & 1) == 1;
 	}
 
 	public static final void copy(JSON0 src, JSON0 dest) {
@@ -124,6 +133,8 @@ public class JSON0 {
 	}
 
 	private int copyValue(Object val, byte[] buf, int offset) {
+		Charset activeCharset = charset == null ? DEFAULT_CHAR_SET : charset;
+
 		if (val instanceof JSON0) {
 			JSON0 json = (JSON0) val;
 			if (json.isArray()) {
@@ -136,14 +147,14 @@ public class JSON0 {
 		} else {
 			if (val instanceof String) {
 				buf[offset++] = JSON_VALUE_QUOTE;
-				offset = copy((String) val, buf, offset, charset);
+				offset = copy((String) val, buf, offset, activeCharset);
 				buf[offset++] = JSON_VALUE_QUOTE;
 			} else if (val instanceof Character) {
 				buf[offset++] = JSON_VALUE_QUOTE;
-				buf[offset++] = (byte) ((char) val);
+				offset = copy(String.valueOf(val), buf, offset, activeCharset);
 				buf[offset++] = JSON_VALUE_QUOTE;
 			} else {
-				offset = copy(String.valueOf(val), buf, offset, charset);
+				offset = copy(String.valueOf(val), buf, offset, activeCharset);
 			}
 		}
 		return offset;
@@ -271,6 +282,7 @@ public class JSON0 {
 	}
 
 	private int toBytes(byte[] buf, int offset, boolean isHeaderIncluded) {
+		Charset activeCharset = charset == null ? DEFAULT_CHAR_SET : charset;
 		int startPos = offset;
 
 		if (isHeaderIncluded) {
@@ -284,6 +296,7 @@ public class JSON0 {
 		int pos = head;
 
 		Element[] elements = data.getElements();
+		boolean hasValue = false;
 
 		for (int i = 0; i < numItems; i++) {
 			Element element = elements[pos];
@@ -291,12 +304,13 @@ public class JSON0 {
 			if (element.value == null)
 				continue;
 
-			if (i > 0) {
+			if (hasValue) {
 				buf[offset++] = JSON_FIELD_DELIM;
 			}
+			hasValue = true;
 
 			if (element.key != null) {
-				offset = copyKey(element.key, buf, offset);
+				offset = copyKey(element.key, buf, offset, activeCharset);
 			}
 
 			offset = copyValue(element.value, buf, offset);
@@ -312,9 +326,42 @@ public class JSON0 {
 	}
 
 	private int findNextDelim(byte[] buf, int startPos, int endPos, byte delim) {
+		boolean isOutsideQuotationMark = true;
+		int objectLevel = 0;
+		int arrayLevel = 0;
+
 		for (int i = startPos; i < endPos; i++) {
-			if (buf[i] == delim)
+			byte val = buf[i];
+
+			if (val == JSON_VALUE_QUOTE && !isEscaped(buf, i, startPos)) {
+				isOutsideQuotationMark = !isOutsideQuotationMark;
+				continue;
+			}
+
+			if (!isOutsideQuotationMark) {
+				continue;
+			}
+
+			if (val == JSON_OPEN) {
+				objectLevel++;
+				continue;
+			}
+			if (val == JSON_CLOSE) {
+				objectLevel--;
+				continue;
+			}
+			if (val == JSON_ARRAY_OPEN) {
+				arrayLevel++;
+				continue;
+			}
+			if (val == JSON_ARRAY_CLOSE) {
+				arrayLevel--;
+				continue;
+			}
+
+			if (val == delim && objectLevel == 0 && arrayLevel == 0) {
 				return i;
+			}
 		}
 		return -1;
 	}
@@ -330,7 +377,7 @@ public class JSON0 {
 
 			for (int i = startPos; i < endPos; i++) {
 
-				if (buf[i] == JSON_VALUE_QUOTE && (i == startPos || (i > startPos && buf[i - 1] != (byte) '\\'))) {
+				if (buf[i] == JSON_VALUE_QUOTE && !isEscaped(buf, i, startPos)) {
 					isOutsideQuotationMark = !isOutsideQuotationMark;
 					continue;
 				}
@@ -344,11 +391,23 @@ public class JSON0 {
 	}
 
 	private int findValuePos(byte[] buf, int startPos, int endPos, byte open, byte close) {
+		boolean isOutsideQuotationMark = true;
 		int counter = 1;
 		for (int i = startPos + 1; i < endPos; i++) {
-			if (buf[i] == close) {
+			byte val = buf[i];
+
+			if (val == JSON_VALUE_QUOTE && !isEscaped(buf, i, startPos)) {
+				isOutsideQuotationMark = !isOutsideQuotationMark;
+				continue;
+			}
+
+			if (!isOutsideQuotationMark) {
+				continue;
+			}
+
+			if (val == close) {
 				counter--;
-			} else if (buf[i] == open) {
+			} else if (val == open) {
 				counter++;
 			}
 			if (counter == 0) {
@@ -440,7 +499,12 @@ public class JSON0 {
 	}
 
 	public final boolean parse(byte[] buf, int offset, int length) {
+		int lengthBeforeParsing = data.getLength();
 		int numItemsBeforeParsing = numItems;
+		int headBeforeParsing = head;
+		int tailBeforeParsing = tail;
+		boolean isArrayBeforeParsing = isArray;
+		Map<String, Integer> keysMapBeforeParsing = data.snapshotKeysMap();
 
 		initMap();
 
@@ -457,23 +521,40 @@ public class JSON0 {
 
 		if (buf[offset] == JSON_OPEN) {
 			if (!parseJSON(buf, offset, length)) {
+				data.setLength(lengthBeforeParsing);
 				numItems = numItemsBeforeParsing;
+				head = headBeforeParsing;
+				tail = tailBeforeParsing;
+				isArray = isArrayBeforeParsing;
+				data.restoreKeysMap(keysMapBeforeParsing);
 				return false;
 			}
 		} else if (buf[offset] == JSON_ARRAY_OPEN) {
 			if (!parseArray(buf, offset, length)) {
+				data.setLength(lengthBeforeParsing);
 				numItems = numItemsBeforeParsing;
+				head = headBeforeParsing;
+				tail = tailBeforeParsing;
+				isArray = isArrayBeforeParsing;
+				data.restoreKeysMap(keysMapBeforeParsing);
 				return false;
 			}
 			isArray = true;
 		} else {
+			data.setLength(lengthBeforeParsing);
+			numItems = numItemsBeforeParsing;
+			head = headBeforeParsing;
+			tail = tailBeforeParsing;
+			isArray = isArrayBeforeParsing;
+			data.restoreKeysMap(keysMapBeforeParsing);
 			return false;
 		}
 		return true;
 	}
 
 	public final boolean parse(String buf) {
-		byte[] bytes = buf.getBytes();
+		Charset activeCharset = charset == null ? DEFAULT_CHAR_SET : charset;
+		byte[] bytes = buf.getBytes(activeCharset);
 		return parse(bytes, 0, bytes.length);
 	}
 
