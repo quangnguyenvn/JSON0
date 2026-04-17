@@ -200,7 +200,7 @@ public class JSON0 {
 	}
 
 	public final void initMap() {
-		data.initMap();
+		data.initMap(head, numItems);
 	}
 
 	public final void put(String key, Object value) {

@@ -38,9 +38,22 @@ class Elements {
 		}
 	}
 
-	public final void initMap() {
+	public final void initMap(int head, int numItems) {
 		if (keysMap == null) {
 			keysMap = new HashMap<String, Integer>();
+		}
+
+		if (head < 0) {
+			return;
+		}
+
+		int pos = head;
+		for (int i = 0; i < numItems; i++) {
+			Element element = elements[pos];
+			if (element.key != null) {
+				keysMap.put(head + element.key, pos);
+			}
+			pos = element.next;
 		}
 	}
 
